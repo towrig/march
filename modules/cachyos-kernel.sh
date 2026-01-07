@@ -5,6 +5,11 @@ source "$(dirname "$0")/../lib/common.sh"
 require_root
 info "Installing CachyOS kernel..."
 
+# ---- CONFIG ----
+CACHYOS_REPO_NAME="cachyos"
+CACHYOS_MIRRORLIST="/etc/pacman.d/cachyos-mirrorlist"
+PACMAN_CONF="/etc/pacman.conf"
+
 # ---- CHECK ARCH ----
 if ! command -v pacman >/dev/null; then
   error "pacman not found. This script is for Arch Linux only."
