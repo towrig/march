@@ -31,7 +31,6 @@ pacman -S --needed --noconfirm \
 pacman -S --needed --noconfirm \
   bluez \
   bluez-utils \
-  pipewire-bluetooth \
   blueman
 
 # Status bar and launcher
