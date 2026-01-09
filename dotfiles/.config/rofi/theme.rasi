@@ -1,0 +1,164 @@
+/* Transparent Dark Theme for Rofi */
+
+* {
+    /* Color definitions */
+    bg-dark:     #1a1a1aee;
+    bg-main:     #222222ee;
+    bg-light:    #2a2a2aee;
+    bg-selected: #404040;
+    
+    fg-main:     #ffffff;
+    fg-dim:      #888888;
+    fg-accent:   #ffffff;
+    
+    border-col:  #444444;
+    urgent:      #ff5555;
+    
+    /* Global properties */
+    background-color: transparent;
+    text-color: @fg-main;
+    margin: 0;
+    padding: 0;
+    spacing: 0;
+}
+
+window {
+    location: center;
+    width: 600px;
+    border-radius: 16px;
+    border: 2px solid;
+    border-color: @border-col;
+    background-color: @bg-dark;
+    
+    /* Transparency for blur effect */
+    transparency: "real";
+}
+
+mainbox {
+    background-color: transparent;
+    children: [inputbar, message, listview];
+}
+
+inputbar {
+    padding: 16px 20px;
+    spacing: 12px;
+    background-color: @bg-main;
+    border-radius: 14px 14px 0 0;
+    children: [prompt, entry];
+}
+
+prompt {
+    text-color: @fg-accent;
+    font: "JetBrainsMono Nerd Font Bold 13";
+}
+
+entry {
+    placeholder: "Search...";
+    placeholder-color: @fg-dim;
+    text-color: @fg-main;
+}
+
+message {
+    padding: 8px 20px;
+    background-color: @bg-light;
+    text-color: @fg-dim;
+}
+
+textbox {
+    text-color: inherit;
+}
+
+listview {
+    lines: 8;
+    columns: 1;
+    fixed-height: true;
+    padding: 8px 0;
+    background-color: transparent;
+    scrollbar: false;
+}
+
+element {
+    padding: 12px 20px;
+    spacing: 12px;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+element normal.normal {
+    background-color: transparent;
+    text-color: @fg-main;
+}
+
+element normal.urgent {
+    background-color: transparent;
+    text-color: @urgent;
+}
+
+element normal.active {
+    background-color: transparent;
+    text-color: @fg-accent;
+}
+
+element selected.normal {
+    background-color: @bg-selected;
+    text-color: @fg-main;
+    border-radius: 8px;
+}
+
+element selected.urgent {
+    background-color: @urgent;
+    text-color: @bg-dark;
+    border-radius: 8px;
+}
+
+element selected.active {
+    background-color: @fg-accent;
+    text-color: @bg-dark;
+    border-radius: 8px;
+}
+
+element alternate.normal {
+    background-color: transparent;
+    text-color: @fg-main;
+}
+
+element alternate.urgent {
+    background-color: transparent;
+    text-color: @urgent;
+}
+
+element alternate.active {
+    background-color: transparent;
+    text-color: @fg-accent;
+}
+
+element-icon {
+    size: 28px;
+    cursor: inherit;
+}
+
+element-text {
+    cursor: inherit;
+    vertical-align: 0.5;
+    text-color: inherit;
+}
+
+/* Mode switcher at bottom (optional) */
+mode-switcher {
+    padding: 8px;
+    background-color: @bg-main;
+    border-radius: 0 0 14px 14px;
+}
+
+button {
+    padding: 8px 16px;
+    background-color: transparent;
+    text-color: @fg-dim;
+    border-radius: 6px;
+}
+
+button selected {
+    background-color: @bg-selected;
+    text-color: @fg-main;
+}
+

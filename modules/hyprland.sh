@@ -1,19 +1,56 @@
 #!/usr/bin/env bash
 set -euo pipefail
-source "$(dirname "$0")/../lib/common.sh"
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+source "$SCRIPT_DIR/../lib/common.sh"
 
 require_root
-info "Installing Hyprland..."
+info "Installing Hyprland and dependencies..."
 
+# Core Hyprland packages
 pacman -S --needed --noconfirm \
   hyprland \
   wayland \
   wayland-protocols \
   xdg-desktop-portal-hyprland \
+  xdg-desktop-portal-gtk \
   xdg-desktop-portal \
-  wl-clipboard \
-  alacritty \
-  pipewire \
-  wireplumber
+  wl-clipboard
 
-info "Hyprland installed."
+# Terminal and shell
+pacman -S --needed --noconfirm alacritty 
+
+# Audio
+pacman -S --needed --noconfirm pipewire wireplumber
+
+# Status bar and launcher
+pacman -S --needed --noconfirm waybar rofi
+
+# Notifications and wallpaper
+pacman -S --needed --noconfirm swaync awww
+
+# Utilities for keyboard and media controls
+pacman -S --needed --noconfirm brightnessctl playerctl
+
+# Fonts
+pacman -S --needed --noconfirm \
+  ttf-jetbrains-mono-nerd \
+  ttf-font-awesome \
+  noto-fonts \
+  noto-fonts-emoji
+
+info "Hyprland packages installed."
+
+# Install hyprbars plugin via hyprpm (run as actual user, not root)
+info "Installing hyprbars plugin..."
+su - "$(get_real_user)" -c "hyprpm update && hyprpm add https://github.com/hyprwm/hyprland-plugins && hyprpm enable hyprbars" || warn "hyprbars plugin installation failed - you may need to install it manually"
+
+# Deploy dotfiles
+DOTFILES_DIR="$SCRIPT_DIR/../dotfiles"
+if [[ -d "$DOTFILES_DIR" ]]; then
+  deploy_dotfiles "$DOTFILES_DIR"
+else
+  warn "Dotfiles directory not found at $DOTFILES_DIR - skipping dotfiles deployment."
+fi
+
+info "Hyprland installation complete."
