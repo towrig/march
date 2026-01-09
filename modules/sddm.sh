@@ -9,17 +9,18 @@ require_root
 
 info "Installing and configuring display manager (SDDM) with SilentSDDM for Hyprland..."
 
-# ---- 1️⃣ Install SDDM and dependencies ----
-info "Installing SDDM and required Qt packages..."
-pacman -S --needed --noconfirm sddm qt6-svg qt6-virtualkeyboard qt6-multimedia git
 
-# ---- 2️⃣ Clone SilentSDDM if not already present ----
-THEME_DIR="/usr/share/sddm/themes/SilentSDDM"
+# ---- 2️⃣ Clone and install SilentSDDM using official install script ----
+# The install.sh handles: dependencies, file copying, fonts, and sddm.conf configuration
+THEME_DIR="/usr/share/sddm/themes/silent"
 if [[ ! -d "$THEME_DIR" ]]; then
     info "Cloning SilentSDDM theme..."
     git clone -b main --depth=1 https://github.com/uiriansan/SilentSDDM.git /tmp/SilentSDDM
-    info "Installing SilentSDDM theme..."
-    cp -r /tmp/SilentSDDM "$THEME_DIR"
+    info "Running SilentSDDM install script..."
+    cd /tmp/SilentSDDM
+    chmod +x install.sh
+    ./install.sh
+    cd -
     rm -rf /tmp/SilentSDDM
 else
     info "SilentSDDM already installed."
@@ -41,23 +42,7 @@ else
     info "Hyprland session file already exists."
 fi
 
-# ---- 4️⃣ Configure SDDM to use SilentSDDM ----
-SDDM_CONF="/etc/sddm.conf"
-mkdir -p "$(dirname "$SDDM_CONF")"
-
-if ! grep -q "^\[Theme\]" "$SDDM_CONF" 2>/dev/null; then
-    echo "[Theme]" >> "$SDDM_CONF"
-fi
-
-if grep -q "^Current=" "$SDDM_CONF"; then
-    sed -i "s/^Current=.*/Current=SilentSDDM/" "$SDDM_CONF"
-else
-    echo "Current=SilentSDDM" >> "$SDDM_CONF"
-fi
-
-info "SDDM theme set to SilentSDDM."
-
-# ---- 5️⃣ Enable SDDM service ----
+# ---- 4️⃣ Enable SDDM service ----
 if ! systemctl is-enabled sddm >/dev/null 2>&1; then
     info "Enabling SDDM service..."
     systemctl enable sddm
@@ -65,30 +50,17 @@ else
     info "SDDM service already enabled."
 fi
 
-# ---- 6️⃣ Optional: configure auto-login ----
+# ---- 5️⃣ Optional: configure auto-login ----
 read -rp "Do you want to enable auto-login for the current user? [y/N]: " AUTOLOGIN
 
 if [[ "${AUTOLOGIN,,}" == "y" ]]; then
     info "Setting up auto-login for user: $SUDO_USER"
+    cat >> /etc/sddm.conf <<EOF
 
-    if ! grep -q "^\[Autologin\]" "$SDDM_CONF" 2>/dev/null; then
-        echo "[Autologin]" >> "$SDDM_CONF"
-    fi
-
-    # Replace or add User line
-    if grep -q "^User=" "$SDDM_CONF"; then
-        sed -i "s/^User=.*/User=$SUDO_USER/" "$SDDM_CONF"
-    else
-        echo "User=$SUDO_USER" >> "$SDDM_CONF"
-    fi
-
-    # Replace or add Session line
-    if grep -q "^Session=" "$SDDM_CONF"; then
-        sed -i "s/^Session=.*/Session=Hyprland/" "$SDDM_CONF"
-    else
-        echo "Session=Hyprland" >> "$SDDM_CONF"
-    fi
-
+[Autologin]
+User=$SUDO_USER
+Session=Hyprland
+EOF
     info "Auto-login enabled for user: $SUDO_USER"
 else
     info "Auto-login not enabled."

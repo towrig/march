@@ -1,0 +1,181 @@
+/* Swaync Theme - Matching Hyprland/Waybar Config */
+
+* {
+    font-family: "JetBrainsMono Nerd Font";
+    font-weight: 500;
+}
+
+/* Control Center */
+.control-center {
+    background: rgba(171, 188, 218, 0.85);
+    border-radius: 12px;
+    border: 1px solid rgba(42, 58, 74, 0.3);
+    padding: 12px;
+}
+
+/* Control Center Title */
+.control-center .widget-title {
+    color: #1A2A3A;
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 8px;
+}
+
+.control-center .widget-title > button {
+    background: rgba(42, 58, 74, 0.25);
+    color: #2A3A4A;
+    border-radius: 8px;
+    border: none;
+    padding: 6px 16px;
+}
+
+.control-center .widget-title > button:hover {
+    background: rgba(42, 58, 74, 0.4);
+    color: #1A2A3A;
+}
+
+/* Do Not Disturb Toggle */
+.control-center .widget-dnd {
+    background: rgba(42, 58, 74, 0.15);
+    border-radius: 8px;
+    margin: 8px;
+    padding: 6px 12px;
+}
+
+.control-center .widget-dnd > switch {
+    background: rgba(42, 58, 74, 0.3);
+    border-radius: 12px;
+}
+
+.control-center .widget-dnd > switch:checked {
+    background: rgba(45, 90, 61, 0.6);
+}
+
+.control-center .widget-dnd > switch slider {
+    background: #ABBCDA;
+    border-radius: 50%;
+}
+
+/* Notification Popup (floating notifications) */
+.notification-row {
+    outline: none;
+}
+
+.notification-row:hover {
+    background: transparent;
+}
+
+.notification {
+    background: rgba(171, 188, 218, 0.90);
+    border-radius: 12px;
+    border: 1px solid rgba(42, 58, 74, 0.3);
+    margin: 6px 12px;
+    padding: 0;
+}
+
+.notification:hover {
+    background: rgba(171, 188, 218, 0.95);
+}
+
+/* Notification in control center */
+.control-center .notification {
+    margin: 6px 0;
+}
+
+/* Critical notifications */
+.notification.critical {
+    border: 1px solid rgba(138, 58, 74, 0.6);
+}
+
+/* Low priority notifications */
+.notification.low {
+    opacity: 0.85;
+}
+
+/* Notification content */
+.notification-content {
+    padding: 12px;
+}
+
+.notification-default-action {
+    border-radius: 12px;
+}
+
+.notification-default-action:hover {
+    background: rgba(42, 58, 74, 0.1);
+}
+
+/* Close button */
+.close-button {
+    background: rgba(42, 58, 74, 0.25);
+    color: #2A3A4A;
+    border-radius: 50%;
+    min-width: 24px;
+    min-height: 24px;
+    margin: 8px;
+}
+
+.close-button:hover {
+    background: rgba(138, 58, 74, 0.5);
+    color: #FFFFFF;
+}
+
+/* Notification text */
+.summary {
+    color: #1A2A3A;
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.time {
+    color: #4A5A6A;
+    font-size: 0.85em;
+}
+
+.body {
+    color: #2A3A4A;
+    font-size: 0.95em;
+}
+
+/* App name / image */
+.app-name {
+    color: #3A4A5A;
+    font-size: 0.85em;
+    font-weight: bold;
+}
+
+.image {
+    border-radius: 8px;
+    margin-right: 12px;
+}
+
+/* Notification action buttons */
+.notification-action {
+    background: rgba(42, 58, 74, 0.25);
+    color: #2A3A4A;
+    border-radius: 8px;
+    border: none;
+    margin: 4px;
+    padding: 6px 12px;
+}
+
+.notification-action:hover {
+    background: rgba(42, 58, 74, 0.4);
+    color: #1A2A3A;
+}
+
+/* Floating notifications window */
+.floating-notifications {
+    background: transparent;
+}
+
+/* Empty placeholder */
+.control-center .notification-row .notification-background .notification {
+    background: rgba(171, 188, 218, 0.85);
+}
+
+/* Blank window behind control center */
+.blank-window {
+    background: transparent;
+}
+
