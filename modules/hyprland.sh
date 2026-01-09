@@ -20,8 +20,19 @@ pacman -S --needed --noconfirm \
 # Terminal and shell
 pacman -S --needed --noconfirm alacritty 
 
-# Audio
-pacman -S --needed --noconfirm pipewire wireplumber
+# Audio (PipeWire stack)
+pacman -S --needed --noconfirm \
+  pipewire \
+  wireplumber \
+  pipewire-audio \
+  pipewire-pulse
+
+# Bluetooth
+pacman -S --needed --noconfirm \
+  bluez \
+  bluez-utils \
+  pipewire-bluetooth \
+  blueman
 
 # Status bar and launcher
 pacman -S --needed --noconfirm waybar rofi
@@ -40,6 +51,10 @@ pacman -S --needed --noconfirm \
   noto-fonts-emoji
 
 info "Hyprland packages installed."
+
+# Enable Bluetooth service
+info "Enabling Bluetooth service..."
+systemctl enable bluetooth
 
 # Install hyprbars plugin via hyprpm (run as actual user, not root)
 info "Installing hyprbars plugin..."

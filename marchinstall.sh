@@ -10,11 +10,15 @@ require_root
 info "Running marchinstall..."
 
 # ---- Core tools every module can rely on ----
-info "Installing core system tools..."
+info "Installing core tools..."
 pacman -S --needed --noconfirm \
   git \
   curl \
-  base-devel
+  base-devel \
+  meson \
+  cpio \
+  cmake \
+  nano
 
 # ---- Install modules ----
 info "Installing modules..."

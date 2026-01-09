@@ -6,7 +6,7 @@
 
     "modules-left": ["hyprland/workspaces", "hyprland/window"],
     "modules-center": ["clock"],
-    "modules-right": ["wireplumber", "network", "cpu", "memory", "battery", "tray"],
+    "modules-right": ["wireplumber", "network", "custom/bluetooth", "cpu", "memory", "battery", "tray"],
 
     "hyprland/workspaces": {
         "format": "{icon}",
@@ -39,13 +39,13 @@
     },
 
     "cpu": {
-        "format": " {usage}%",
+        "format": "󰍛 {usage}%",
         "tooltip": true,
         "interval": 2
     },
 
     "memory": {
-        "format": " {}%",
+        "format": "󰘚 {}%",
         "interval": 2
     },
 
@@ -79,6 +79,15 @@
     "tray": {
         "icon-size": 18,
         "spacing": 10
+    },
+
+    "custom/bluetooth": {
+        "exec": "bluetoothctl show | grep -q 'Powered: yes' && echo '󰂯' || echo '󰂲'",
+        "interval": 2,
+        "format": "{}",
+        "tooltip-format": "Bluetooth",
+        "on-click": "blueman-manager",
+        "on-click-right": "bluetoothctl show | grep -q 'Powered: yes' && bluetoothctl power off || bluetoothctl power on"
     }
 }
 

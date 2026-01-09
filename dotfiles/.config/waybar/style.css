@@ -1,4 +1,4 @@
-/* Waybar Catppuccin Mocha Theme */
+/* Waybar Gray Theme - Matching Hyprland Config */
 
 * {
     font-family: "JetBrainsMono Nerd Font", "Font Awesome 6 Free";
@@ -7,47 +7,47 @@
 }
 
 window#waybar {
-    background: rgba(30, 30, 46, 0.9);
-    color: #cdd6f4;
-    border-bottom: 2px solid #313244;
+    background: rgba(171, 188, 218, 0.75);
+    color: #2A3A4A;
+    border-bottom: 2px solid rgba(42, 58, 74, 0.3);
 }
 
 tooltip {
-    background: #1e1e2e;
-    border: 1px solid #313244;
+    background: rgba(171, 188, 218, 0.95);
+    border: 1px solid rgba(42, 58, 74, 0.4);
     border-radius: 8px;
 }
 
 tooltip label {
-    color: #cdd6f4;
+    color: #2A3A4A;
 }
 
 #workspaces button {
     padding: 0 8px;
-    color: #6c7086;
+    color: #4A5A6A;
     background: transparent;
     border: none;
     border-radius: 0;
 }
 
 #workspaces button:hover {
-    background: rgba(49, 50, 68, 0.5);
-    color: #cdd6f4;
+    background: rgba(42, 58, 74, 0.2);
+    color: #1A2A3A;
 }
 
 #workspaces button.active {
-    color: #89b4fa;
-    background: #313244;
+    color: #1A2A3A;
+    background: rgba(42, 58, 74, 0.3);
     border-radius: 8px;
 }
 
 #workspaces button.urgent {
-    color: #f38ba8;
+    color: #C54B6C;
 }
 
 #window {
     padding: 0 10px;
-    color: #a6adc8;
+    color: #3A4A5A;
 }
 
 #clock,
@@ -55,65 +55,69 @@ tooltip label {
 #cpu,
 #memory,
 #network,
-#pulseaudio,
+#wireplumber,
 #tray {
     padding: 0 12px;
     margin: 4px 2px;
-    background: #313244;
+    background: rgba(42, 58, 74, 0.25);
     border-radius: 8px;
 }
 
 #clock {
-    color: #f9e2af;
+    color: #1A2A3A;
     font-weight: bold;
 }
 
 #battery {
-    color: #a6e3a1;
+    color: #2D5A3D;
 }
 
 #battery.charging {
-    color: #94e2d5;
+    color: #2A6A5A;
 }
 
 #battery.warning:not(.charging) {
-    color: #fab387;
+    color: #8A5A2A;
 }
 
 #battery.critical:not(.charging) {
-    color: #f38ba8;
+    color: #8A3A4A;
     animation: blink 0.5s linear infinite alternate;
 }
 
 @keyframes blink {
     to {
-        color: #1e1e2e;
-        background-color: #f38ba8;
+        color: #FFFFFF;
+        background-color: #8A3A4A;
     }
 }
 
 #cpu {
-    color: #89b4fa;
+    color: #2A4A6A;
 }
 
 #memory {
-    color: #cba6f7;
+    color: #4A3A6A;
 }
 
 #network {
-    color: #94e2d5;
+    color: #2A5A5A;
+}
+
+#custom-bluetooth {
+    color: #3A4A6A;
 }
 
 #network.disconnected {
-    color: #f38ba8;
+    color: #8A3A4A;
 }
 
 #wireplumber {
-    color: #f5c2e7;
+    color: #5A3A5A;
 }
 
 #wireplumber.muted {
-    color: #6c7086;
+    color: #6A7A8A;
 }
 
 #tray {
@@ -127,4 +131,3 @@ tooltip label {
 #tray > .needs-attention {
     -gtk-icon-effect: highlight;
 }
-
