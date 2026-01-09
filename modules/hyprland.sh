@@ -26,11 +26,11 @@ pacman -S --needed --noconfirm pipewire wireplumber
 # Status bar and launcher
 pacman -S --needed --noconfirm waybar rofi
 
-# Notifications and wallpaper
-pacman -S --needed --noconfirm swaync awww
+# Wallpaper
+pacman -S --needed --noconfirm swww
 
-# Utilities for keyboard and media controls
-pacman -S --needed --noconfirm brightnessctl playerctl
+# Utilities
+pacman -S --needed --noconfirm brightnessctl playerctl swaync
 
 # Fonts
 pacman -S --needed --noconfirm \
