@@ -57,8 +57,13 @@ info "Enabling Bluetooth service..."
 systemctl enable bluetooth
 
 # Install hyprbars plugin via hyprpm (run as actual user, not root)
-info "Installing hyprbars plugin..."
-su - "$(get_real_user)" -c "hyprpm update && hyprpm add https://github.com/hyprwm/hyprland-plugins && hyprpm enable hyprbars" || warn "hyprbars plugin installation failed - you may need to install it manually"
+REAL_USER="$(get_real_user)"
+if su - "$REAL_USER" -c "hyprpm list 2>/dev/null | grep -q 'hyprbars.*enabled'"; then
+  info "hyprbars plugin already installed and enabled."
+else
+  info "Installing hyprbars plugin..."
+  su - "$REAL_USER" -c "hyprpm update && hyprpm add https://github.com/hyprwm/hyprland-plugins && hyprpm enable hyprbars" || warn "hyprbars plugin installation failed - you may need to install it manually"
+fi
 
 # Deploy dotfiles
 DOTFILES_DIR="$SCRIPT_DIR/../dotfiles"
