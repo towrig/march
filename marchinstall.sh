@@ -38,8 +38,11 @@ else
     cd '$YAY_BUILD_DIR' && \
     git clone https://aur.archlinux.org/yay-bin.git && \
     cd yay-bin && \
-    makepkg -si --noconfirm
+    makepkg -s --noconfirm
   "
+  
+  # Install the built package as root
+  pacman -U --noconfirm "$YAY_BUILD_DIR"/yay-bin/yay-bin-*.pkg.tar.zst
   
   # Clean up build files
   info "Cleaning up yay build files..."
