@@ -1,6 +1,6 @@
 # marchinstall
 
-A simple script to set up a minimal Arch installation with Hyprland (floating WM setup), lovingly called "march".
+A simple script to set up a minimal Arch installation with Hyprland (floating windows), lovingly called "march".
 Also swaps the kernel for CachyOS binaries for better gaming performance.
 
 ## Usage
@@ -12,6 +12,7 @@ sudo ./marchinstall.sh
 ## Packages
 
 - **hyprland** - Hyprland, duh
+- **yay** - AUR helper
 - **sddm** - Display Manager
   - using the SilentSDDM theme
 
@@ -21,15 +22,16 @@ sudo ./marchinstall.sh
 
 ### Audio
 
-- **pipewire** - Modern audio server
+- **pipewire** - Modern audio server. `pipewire-audio` and `pipewire-pulse` are also included.
 - **wireplumber** - PipeWire session manager
+- **blueman** - Bluetooth manager. `bluez` packages are also installed so pipewire can handle bluetooth.
 
 ### Desktop
 
 - **waybar** - Status bar
-- **walker** - Application launcher
+- **rofi** - Application launcher
 - **swaync** - Notification daemon
-- **awww** - Animated wallpaper daemon
+- **swww** - Animated wallpaper daemon
 
 ### Utilities
 
@@ -69,7 +71,7 @@ dotfiles/
 | Key | Action |
 | --- | ------ |
 | `Super + Return` | Terminal (Alacritty) |
-| `Super + D` | App launcher (Walker) |
+| `Super + D` | App launcher (Rofi) |
 | `Super + Q` | Close window |
 | `Super + F` | Fullscreen |
 | `Super + V` | Toggle floating |

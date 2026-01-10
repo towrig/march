@@ -20,6 +20,34 @@ pacman -S --needed --noconfirm \
   cmake \
   nano
 
+# ---- Install yay (AUR helper) ----
+REAL_USER="$(get_real_user)"
+REAL_HOME="$(get_real_home)"
+YAY_BUILD_DIR="$REAL_HOME/.cache/yay-install"
+
+if command -v yay &>/dev/null; then
+  info "yay is already installed."
+else
+  info "Installing yay AUR helper..."
+  
+  # Create build directory
+  su - "$REAL_USER" -c "mkdir -p '$YAY_BUILD_DIR'"
+  
+  # Clone and build yay-bin (precompiled, faster)
+  su - "$REAL_USER" -c "
+    cd '$YAY_BUILD_DIR' && \
+    git clone https://aur.archlinux.org/yay-bin.git && \
+    cd yay-bin && \
+    makepkg -si --noconfirm
+  "
+  
+  # Clean up build files
+  info "Cleaning up yay build files..."
+  rm -rf "$YAY_BUILD_DIR"
+  
+  info "yay installed successfully."
+fi
+
 # ---- Install modules ----
 info "Installing modules..."
 "$SCRIPT_DIR/modules/cachyos-kernel.sh"
