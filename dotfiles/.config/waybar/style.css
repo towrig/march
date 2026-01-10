@@ -10,7 +10,7 @@ window#waybar {
     background: rgba(171, 188, 218, 0.10);
     color: #2A3A4A;
     border-radius: 12px;
-    margin: 8px 12px 0 12px;
+    border: 1px solid rgba(171, 188, 218, 1.0);
 }
 
 tooltip {
@@ -25,30 +25,30 @@ tooltip label {
 
 #workspaces button {
     padding: 0 8px;
-    color: #4A5A6A;
+    color: #DD7596;
     background: transparent;
     border: none;
     border-radius: 0;
 }
 
 #workspaces button:hover {
-    background: rgba(42, 58, 74, 0.2);
-    color: #1A2A3A;
+    background: rgba(221, 117, 150, 0.25);
+    color: #C45A7A;
 }
 
 #workspaces button.active {
-    color: #1A2A3A;
-    background: rgba(42, 58, 74, 0.3);
+    color: #FFFFFF;
+    background: rgba(221, 117, 150, 0.85);
     border-radius: 8px;
 }
 
 #workspaces button.urgent {
-    color: #C54B6C;
+    color: #A33D5C;
 }
 
 #window {
     padding: 0 10px;
-    color: #3A4A5A;
+    color: #1E3A5F;
 }
 
 #clock,
@@ -58,67 +58,65 @@ tooltip label {
 #network,
 #wireplumber,
 #tray {
-    padding: 0 12px;
-    margin: 4px 2px;
-    background: rgba(42, 58, 74, 0.25);
+    padding: 2 12px;
     border-radius: 8px;
 }
 
 #clock {
-    color: #1A2A3A;
+    color: #0D2137;
     font-weight: bold;
 }
 
 #battery {
-    color: #2D5A3D;
+    color: #1B6B3A;
 }
 
 #battery.charging {
-    color: #2A6A5A;
+    color: #147A5E;
 }
 
 #battery.warning:not(.charging) {
-    color: #8A5A2A;
+    color: #A85D00;
 }
 
 #battery.critical:not(.charging) {
-    color: #8A3A4A;
+    color: #C42B3B;
     animation: blink 0.5s linear infinite alternate;
 }
 
 @keyframes blink {
     to {
         color: #FFFFFF;
-        background-color: #8A3A4A;
+        background-color: #C42B3B;
     }
 }
 
 #cpu {
-    color: #2A4A6A;
+    color: #1456A8;
 }
 
 #memory {
-    color: #4A3A6A;
+    color: #6B2D9E;
 }
 
 #network {
-    color: #2A5A5A;
+    color: #0E7272;
 }
 
 #custom-bluetooth {
-    color: #3A4A6A;
+    color: #2E5BA8;
 }
 
 #network.disconnected {
-    color: #8A3A4A;
+    color: #C42B3B;
 }
 
 #wireplumber {
-    color: #5A3A5A;
+    color: #8B2D7A;
 }
 
 #wireplumber.muted {
-    color: #6A7A8A;
+    color: #5A6A7A;
 }
 
 #tray {

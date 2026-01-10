@@ -1,18 +1,20 @@
-/* Transparent Dark Theme for Rofi */
+/* Rofi Theme - Matching Hyprland/Waybar Config */
+/* Base color: rgb(171, 188, 218) / #ABBCDA */
 
 * {
     /* Color definitions */
-    bg-dark:     #1a1a1aee;
-    bg-main:     #222222ee;
-    bg-light:    #2a2a2aee;
-    bg-selected: #404040;
+    bg-main:     rgba(171, 188, 218, 0.92);
+    bg-light:    rgba(171, 188, 218, 0.95);
+    bg-selected: rgba(221, 117, 150, 0.85);
+    bg-hover:    rgba(42, 58, 74, 0.15);
     
-    fg-main:     #ffffff;
-    fg-dim:      #888888;
-    fg-accent:   #ffffff;
+    fg-main:     #1A2A3A;
+    fg-dim:      #4A5A6A;
+    fg-accent:   #DD7596;
+    fg-selected: #FFFFFF;
     
-    border-col:  #444444;
-    urgent:      #ff5555;
+    border-col:  rgba(42, 58, 74, 0.4);
+    urgent:      #C42B3B;
     
     /* Global properties */
     background-color: transparent;
@@ -26,9 +28,9 @@ window {
     location: center;
     width: 600px;
     border-radius: 16px;
-    border: 2px solid;
+    border: 1px solid;
     border-color: @border-col;
-    background-color: @bg-dark;
+    background-color: @bg-main;
     
     /* Transparency for blur effect */
     transparency: "real";
@@ -42,7 +44,7 @@ mainbox {
 inputbar {
     padding: 16px 20px;
     spacing: 12px;
-    background-color: @bg-main;
+    background-color: @bg-light;
     border-radius: 14px 14px 0 0;
     children: [prompt, entry];
 }
@@ -60,7 +62,7 @@ entry {
 
 message {
     padding: 8px 20px;
-    background-color: @bg-light;
+    background-color: @bg-hover;
     text-color: @fg-dim;
 }
 
@@ -101,19 +103,19 @@ element normal.active {
 
 element selected.normal {
     background-color: @bg-selected;
-    text-color: @fg-main;
+    text-color: @fg-selected;
     border-radius: 8px;
 }
 
 element selected.urgent {
     background-color: @urgent;
-    text-color: @bg-dark;
+    text-color: @fg-selected;
     border-radius: 8px;
 }
 
 element selected.active {
     background-color: @fg-accent;
-    text-color: @bg-dark;
+    text-color: @fg-selected;
     border-radius: 8px;
 }
 
@@ -146,7 +148,7 @@ element-text {
 /* Mode switcher at bottom (optional) */
 mode-switcher {
     padding: 8px;
-    background-color: @bg-main;
+    background-color: @bg-light;
     border-radius: 0 0 14px 14px;
 }
 
@@ -159,6 +161,5 @@ button {
 
 button selected {
     background-color: @bg-selected;
-    text-color: @fg-main;
+    text-color: @fg-selected;
 }
-
