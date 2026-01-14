@@ -8,15 +8,15 @@
 }
 
 window#waybar {
-    background: rgba(@base_rgb, 0.10);
+    background: @base_10;
     color: @text_secondary;
     border-radius: 12px;
     border: 1px solid @base;
 }
 
 tooltip {
-    background: rgba(@base_rgb, 0.95);
-    border: 1px solid rgba(@border_rgb, 0.4);
+    background: @base_95;
+    border: 1px solid @border_40;
     border-radius: 8px;
 }
 
@@ -42,11 +42,11 @@ tooltip label {
 }
 
 #workspaces button:hover {
-    background: rgba(@accent_rgb, 0.25);
+    background: @accent_25;
 }
 
 #workspaces button.active {
-    background: rgba(@accent_rgb, 0.75);
+    background: @accent_75;
     border: 1px solid @accent;
 }
 

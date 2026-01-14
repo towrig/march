@@ -2,22 +2,30 @@
 /* Import this in waybar, swaync, and gtk configs */
 /* Usage: @import url("../../theme/colors.css"); */
 
+/* Base colors */
 @define-color base #ABBCDA;
-@define-color base_rgb 171, 188, 218;
+@define-color base_10 rgba(171, 188, 218, 0.10);
+@define-color base_50 rgba(171, 188, 218, 0.50);
+@define-color base_75 rgba(171, 188, 218, 0.75);
+@define-color base_95 rgba(171, 188, 218, 0.95);
 
+/* Text colors */
 @define-color text_primary #1A2A3A;
 @define-color text_secondary #2A3A4A;
 @define-color text_dim #4A5A6A;
 @define-color text_light #FFFFFF;
 
+/* Accent colors */
 @define-color accent #DD7596;
-@define-color accent_rgb 221, 117, 150;
+@define-color accent_25 rgba(221, 117, 150, 0.25);
+@define-color accent_75 rgba(221, 117, 150, 0.75);
 
+/* Border colors */
 @define-color border #2A3A4A;
-@define-color border_rgb 42, 58, 74;
+@define-color border_40 rgba(42, 58, 74, 0.4);
 
+/* Semantic colors */
 @define-color urgent #C42B3B;
 @define-color success #50FA7B;
 @define-color warning #F9E2AF;
 @define-color error #FF6B6B;
-

@@ -8,9 +8,9 @@
 
 /* Control Center */
 .control-center {
-    background: rgba(@base_rgb, 0.85);
+    background: rgba(171, 188, 218, 0.85);
     border-radius: 12px;
-    border: 1px solid rgba(@border_rgb, 0.3);
+    border: 1px solid rgba(42, 58, 74, 0.3);
     padding: 12px;
 }
 
@@ -23,7 +23,7 @@
 }
 
 .control-center .widget-title > button {
-    background: rgba(@border_rgb, 0.25);
+    background: rgba(42, 58, 74, 0.25);
     color: @text_secondary;
     border-radius: 8px;
     border: none;
@@ -31,20 +31,20 @@
 }
 
 .control-center .widget-title > button:hover {
-    background: rgba(@border_rgb, 0.4);
+    background: rgba(42, 58, 74, 0.4);
     color: @text_primary;
 }
 
 /* Do Not Disturb Toggle */
 .control-center .widget-dnd {
-    background: rgba(@border_rgb, 0.15);
+    background: rgba(42, 58, 74, 0.15);
     border-radius: 8px;
     margin: 8px;
     padding: 6px 12px;
 }
 
 .control-center .widget-dnd > switch {
-    background: rgba(@border_rgb, 0.3);
+    background: rgba(42, 58, 74, 0.3);
     border-radius: 12px;
 }
 
@@ -67,15 +67,15 @@
 }
 
 .notification {
-    background: rgba(@base_rgb, 0.90);
+    background: rgba(171, 188, 218, 0.90);
     border-radius: 12px;
-    border: 1px solid rgba(@border_rgb, 0.3);
+    border: 1px solid rgba(42, 58, 74, 0.3);
     margin: 6px 12px;
     padding: 0;
 }
 
 .notification:hover {
-    background: rgba(@base_rgb, 0.95);
+    background: rgba(171, 188, 218, 0.95);
 }
 
 /* Notification in control center */
@@ -103,12 +103,12 @@
 }
 
 .notification-default-action:hover {
-    background: rgba(@border_rgb, 0.1);
+    background: rgba(42, 58, 74, 0.1);
 }
 
 /* Close button */
 .close-button {
-    background: rgba(@border_rgb, 0.25);
+    background: rgba(42, 58, 74, 0.25);
     color: @text_secondary;
     border-radius: 50%;
     min-width: 24px;
@@ -152,7 +152,7 @@
 
 /* Notification action buttons */
 .notification-action {
-    background: rgba(@border_rgb, 0.25);
+    background: rgba(42, 58, 74, 0.25);
     color: @text_secondary;
     border-radius: 8px;
     border: none;
@@ -161,7 +161,7 @@
 }
 
 .notification-action:hover {
-    background: rgba(@border_rgb, 0.4);
+    background: rgba(42, 58, 74, 0.4);
     color: @text_primary;
 }
 
@@ -172,7 +172,7 @@
 
 /* Empty placeholder */
 .control-center .notification-row .notification-background .notification {
-    background: rgba(@base_rgb, 0.85);
+    background: rgba(171, 188, 218, 0.85);
 }
 
 /* Blank window behind control center */

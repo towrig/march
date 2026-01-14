@@ -61,22 +61,19 @@ info "Hyprland packages installed."
 info "Enabling Bluetooth service..."
 systemctl enable bluetooth
 
-# Install hyprland-plugins via AUR (includes hyprbars)
-# Note: hyprpm requires a running Hyprland session, so we use the AUR package instead
-REAL_USER="$(get_real_user)"
-if pacman -Qi hyprland-plugins-git &>/dev/null; then
-  info "hyprland-plugins-git already installed."
-else
-  info "Installing hyprland-plugins-git via AUR..."
-  su - "$REAL_USER" -c "yay -S --needed --noconfirm hyprland-plugins-git" || warn "hyprland-plugins-git installation failed - you may need to install it manually"
-fi
-
 # Deploy dotfiles
 DOTFILES_DIR="$SCRIPT_DIR/../dotfiles"
+REAL_USER="$(get_real_user)"
+REAL_HOME="$(eval echo "~$REAL_USER")"
+
 if [[ -d "$DOTFILES_DIR" ]]; then
   deploy_dotfiles "$DOTFILES_DIR"
+  
+  # Make Hyprland scripts executable
+  chmod +x "$REAL_HOME/.config/hypr/scripts/"*.sh 2>/dev/null || true
 else
   warn "Dotfiles directory not found at $DOTFILES_DIR - skipping dotfiles deployment."
 fi
 
 info "Hyprland installation complete."
+info "Note: hyprbars plugin will be installed automatically on first login via hyprpm."
