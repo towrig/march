@@ -68,9 +68,6 @@ REAL_HOME="$(eval echo "~$REAL_USER")"
 
 if [[ -d "$DOTFILES_DIR" ]]; then
   deploy_dotfiles "$DOTFILES_DIR"
-  
-  # Make Hyprland scripts executable
-  chmod +x "$REAL_HOME/.config/hypr/scripts/"*.sh 2>/dev/null || true
 else
   warn "Dotfiles directory not found at $DOTFILES_DIR - skipping dotfiles deployment."
 fi
