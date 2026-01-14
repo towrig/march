@@ -9,6 +9,9 @@ require_root
 
 info "Installing and configuring display manager (SDDM) with SilentSDDM for Hyprland..."
 
+# ---- 1️⃣ Install SDDM and dependencies ----
+info "Installing SDDM..."
+pacman -S --needed --noconfirm sddm qt6-svg qt6-declarative
 
 # ---- 2️⃣ Clone and install SilentSDDM using official install script ----
 # The install.sh handles: dependencies, file copying, fonts, and sddm.conf configuration
