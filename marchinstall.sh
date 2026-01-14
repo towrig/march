@@ -53,6 +53,7 @@ fi
 
 # ---- Install modules ----
 info "Installing modules..."
+chmod +x "$SCRIPT_DIR/modules/"*.sh
 "$SCRIPT_DIR/modules/cachyos-kernel.sh"
 "$SCRIPT_DIR/modules/hyprland.sh"
 "$SCRIPT_DIR/modules/sddm.sh"
