@@ -1,0 +1,26 @@
+/* Unified Color Theme - Rofi Version */
+/* Import this in rofi configs */
+/* Usage: @import "~/.config/theme/colors.rasi" */
+
+* {
+    base:           #ABBCDA;
+    base-dim:       rgba(171, 188, 218, 0.50);
+    base-bright:    rgba(171, 188, 218, 0.92);
+    
+    text-primary:   #1A2A3A;
+    text-secondary: #2A3A4A;
+    text-dim:       #4A5A6A;
+    text-light:     #FFFFFF;
+    
+    accent:         #DD7596;
+    accent-dim:     rgba(221, 117, 150, 0.25);
+    accent-bright:  rgba(221, 117, 150, 0.85);
+    
+    border:         rgba(42, 58, 74, 0.4);
+    
+    urgent:         #C42B3B;
+    success:        #50FA7B;
+    warning:        #F9E2AF;
+    error:          #FF6B6B;
+}
+

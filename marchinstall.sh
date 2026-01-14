@@ -56,6 +56,7 @@ info "Installing modules..."
 "$SCRIPT_DIR/modules/cachyos-kernel.sh"
 "$SCRIPT_DIR/modules/hyprland.sh"
 "$SCRIPT_DIR/modules/sddm.sh"
+"$SCRIPT_DIR/modules/zsh.sh"
 
 info "marchinstall completed successfully."
 warn "Reboot recommended."

@@ -1,0 +1,23 @@
+/* Unified Color Theme - CSS Version */
+/* Import this in waybar, swaync, and gtk configs */
+/* Usage: @import url("../../theme/colors.css"); */
+
+@define-color base #ABBCDA;
+@define-color base_rgb 171, 188, 218;
+
+@define-color text_primary #1A2A3A;
+@define-color text_secondary #2A3A4A;
+@define-color text_dim #4A5A6A;
+@define-color text_light #FFFFFF;
+
+@define-color accent #DD7596;
+@define-color accent_rgb 221, 117, 150;
+
+@define-color border #2A3A4A;
+@define-color border_rgb 42, 58, 74;
+
+@define-color urgent #C42B3B;
+@define-color success #50FA7B;
+@define-color warning #F9E2AF;
+@define-color error #FF6B6B;
+

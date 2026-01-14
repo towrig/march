@@ -36,6 +36,12 @@ pacman -S --needed --noconfirm \
 # Status bar and launcher
 pacman -S --needed --noconfirm waybar rofi
 
+# File manager (Nemo with extensions)
+pacman -S --needed --noconfirm \
+  nemo \
+  nemo-fileroller \
+  file-roller
+
 # Wallpaper
 pacman -S --needed --noconfirm swww
 
@@ -55,13 +61,14 @@ info "Hyprland packages installed."
 info "Enabling Bluetooth service..."
 systemctl enable bluetooth
 
-# Install hyprbars plugin via hyprpm (run as actual user, not root)
+# Install hyprland-plugins via AUR (includes hyprbars)
+# Note: hyprpm requires a running Hyprland session, so we use the AUR package instead
 REAL_USER="$(get_real_user)"
-if su - "$REAL_USER" -c "hyprpm list 2>/dev/null | grep -q 'hyprbars.*enabled'"; then
-  info "hyprbars plugin already installed and enabled."
+if pacman -Qi hyprland-plugins-git &>/dev/null; then
+  info "hyprland-plugins-git already installed."
 else
-  info "Installing hyprbars plugin..."
-  su - "$REAL_USER" -c "hyprpm update && hyprpm add https://github.com/hyprwm/hyprland-plugins && hyprpm enable hyprbars" || warn "hyprbars plugin installation failed - you may need to install it manually"
+  info "Installing hyprland-plugins-git via AUR..."
+  su - "$REAL_USER" -c "yay -S --needed --noconfirm hyprland-plugins-git" || warn "hyprland-plugins-git installation failed - you may need to install it manually"
 fi
 
 # Deploy dotfiles

@@ -1,20 +1,19 @@
-/* Rofi Theme - Matching Hyprland/Waybar Config */
-/* Base color: rgb(171, 188, 218) / #ABBCDA */
+/* Rofi Theme - Using Unified Colors */
+@import "~/.config/theme/colors.rasi"
 
 * {
-    /* Color definitions */
-    bg-main:     rgba(171, 188, 218, 0.92);
+    /* Map theme colors to rofi variables */
+    bg-main:     @base-bright;
     bg-light:    rgba(171, 188, 218, 0.95);
-    bg-selected: rgba(221, 117, 150, 0.85);
+    bg-selected: @accent-bright;
     bg-hover:    rgba(42, 58, 74, 0.15);
     
-    fg-main:     #1A2A3A;
-    fg-dim:      #4A5A6A;
-    fg-accent:   #DD7596;
-    fg-selected: #FFFFFF;
+    fg-main:     @text-primary;
+    fg-dim:      @text-dim;
+    fg-accent:   @accent;
+    fg-selected: @text-light;
     
-    border-col:  rgba(42, 58, 74, 0.4);
-    urgent:      #C42B3B;
+    border-col:  @border;
     
     /* Global properties */
     background-color: transparent;

@@ -1,4 +1,5 @@
-/* Waybar Gray Theme - Matching Hyprland Config */
+/* Waybar Theme - Using Unified Colors */
+@import url("../theme/colors.css");
 
 * {
     font-family: "JetBrainsMono Nerd Font", "Font Awesome 6 Free";
@@ -7,20 +8,20 @@
 }
 
 window#waybar {
-    background: rgba(171, 188, 218, 0.10);
-    color: #2A3A4A;
+    background: rgba(@base_rgb, 0.10);
+    color: @text_secondary;
     border-radius: 12px;
-    border: 1px solid rgba(171, 188, 218, 1.0);
+    border: 1px solid @base;
 }
 
 tooltip {
-    background: rgba(171, 188, 218, 0.95);
-    border: 1px solid rgba(42, 58, 74, 0.4);
+    background: rgba(@base_rgb, 0.95);
+    border: 1px solid rgba(@border_rgb, 0.4);
     border-radius: 8px;
 }
 
 tooltip label {
-    color: #2A3A4A;
+    color: @text_secondary;
 }
 
 #workspaces {
@@ -30,7 +31,7 @@ tooltip label {
 #workspaces button {
     padding: 2 5 2 2;
     margin: 4 0 4 4;
-    color: #FFFFFF;
+    color: @text_light;
     box-shadow: none;
     outline: none;
     background: transparent;
@@ -41,22 +42,22 @@ tooltip label {
 }
 
 #workspaces button:hover {
-    background: rgba(221, 117, 150, 0.25);
+    background: rgba(@accent_rgb, 0.25);
 }
 
 #workspaces button.active {
-    background: rgba(221, 117, 150, 0.75);
-    border: 1px solid rgba(221, 117, 150, 1.0);
+    background: rgba(@accent_rgb, 0.75);
+    border: 1px solid @accent;
 }
 
 #workspaces button.urgent {
-    color: #C42B3B;
+    color: @urgent;
     animation: blink 0.5s linear infinite alternate;
 }
 
 #window {
     padding: 0 10px;
-    color: #1E3A5F;
+    color: @text_primary;
 }
 
 #clock,
@@ -71,7 +72,7 @@ tooltip label {
 }
 
 #clock {
-    color: #0D2137;
+    color: @text_primary;
     font-weight: bold;
 }
 
@@ -84,18 +85,18 @@ tooltip label {
 }
 
 #battery.warning:not(.charging) {
-    color: #A85D00;
+    color: @warning;
 }
 
 #battery.critical:not(.charging) {
-    color: #C42B3B;
+    color: @urgent;
     animation: blink 0.5s linear infinite alternate;
 }
 
 @keyframes blink {
     to {
-        color: #FFFFFF;
-        background-color: #C42B3B;
+        color: @text_light;
+        background-color: @urgent;
     }
 }
 
@@ -116,7 +117,7 @@ tooltip label {
 }
 
 #network.disconnected {
-    color: #C42B3B;
+    color: @urgent;
 }
 
 #wireplumber {
@@ -124,7 +125,7 @@ tooltip label {
 }
 
 #wireplumber.muted {
-    color: #5A6A7A;
+    color: @text_dim;
 }
 
 #tray {

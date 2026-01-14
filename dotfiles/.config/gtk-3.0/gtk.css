@@ -1,0 +1,125 @@
+/* GTK3 Custom Theme - Using Unified Colors */
+@import url("../theme/colors.css");
+
+/* Selection and highlight colors */
+@define-color theme_selected_bg_color @accent;
+@define-color theme_selected_fg_color @text_light;
+@define-color accent_color @accent;
+
+/* General selection styling */
+*:selected,
+*:selected:focus {
+    background-color: @accent;
+    color: @text_light;
+}
+
+/* Sidebar styling for Nemo */
+.nemo-window .sidebar,
+.nemo-window placessidebar {
+    background-color: rgba(@base_rgb, 0.15);
+}
+
+.nemo-window .sidebar row:selected,
+.nemo-window placessidebar row:selected {
+    background-color: rgba(@accent_rgb, 0.75);
+    color: @text_light;
+}
+
+.nemo-window .sidebar row:hover,
+.nemo-window placessidebar row:hover {
+    background-color: rgba(@accent_rgb, 0.25);
+}
+
+/* Pathbar / breadcrumbs */
+.nemo-window .path-bar button:checked,
+.nemo-window .pathbar button:checked {
+    background-color: rgba(@accent_rgb, 0.65);
+    color: @text_light;
+}
+
+/* Toolbar styling */
+.nemo-window toolbar,
+.nemo-window .toolbar {
+    background-color: rgba(@base_rgb, 0.25);
+    border-bottom: 1px solid rgba(@border_rgb, 0.2);
+}
+
+/* Icon view selection */
+.nemo-window iconview:selected,
+.nemo-window .view:selected {
+    background-color: rgba(@accent_rgb, 0.65);
+    color: @text_light;
+    border-radius: 6px;
+}
+
+/* List view selection */
+.nemo-window treeview:selected,
+.nemo-window treeview row:selected {
+    background-color: rgba(@accent_rgb, 0.65);
+    color: @text_light;
+}
+
+/* Hover states */
+.nemo-window iconview:hover,
+.nemo-window .view:hover {
+    background-color: rgba(@accent_rgb, 0.15);
+    border-radius: 6px;
+}
+
+/* Rubberband selection */
+rubberband,
+.rubberband {
+    background-color: rgba(@accent_rgb, 0.35);
+    border: 1px solid rgba(@accent_rgb, 0.75);
+}
+
+/* Buttons */
+button:checked {
+    background-color: rgba(@accent_rgb, 0.65);
+    color: @text_light;
+}
+
+/* Context menu */
+menu,
+.menu,
+.context-menu {
+    background-color: rgba(@base_rgb, 0.95);
+    border: 1px solid rgba(@border_rgb, 0.3);
+    border-radius: 8px;
+}
+
+menu menuitem:hover,
+.menu menuitem:hover {
+    background-color: rgba(@accent_rgb, 0.65);
+    color: @text_light;
+}
+
+/* Scrollbars */
+scrollbar slider {
+    background-color: rgba(@border_rgb, 0.4);
+    border-radius: 10px;
+    min-width: 8px;
+    min-height: 8px;
+}
+
+scrollbar slider:hover {
+    background-color: rgba(@accent_rgb, 0.65);
+}
+
+/* Entry fields */
+entry:focus {
+    border-color: @accent;
+    box-shadow: 0 0 0 1px rgba(@accent_rgb, 0.35);
+}
+
+/* Progress bars */
+progressbar progress {
+    background-color: @accent;
+}
+
+/* Checkboxes and radio buttons */
+check:checked,
+radio:checked {
+    background-color: @accent;
+    color: @text_light;
+}
