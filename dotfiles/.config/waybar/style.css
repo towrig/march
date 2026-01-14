@@ -60,6 +60,27 @@ tooltip label {
     color: @text_primary;
 }
 
+#taskbar {
+    padding: 0 4px;
+}
+
+#taskbar button {
+    padding: 2px 6px;
+    margin: 4px 2px;
+    border-radius: 6px;
+    background: transparent;
+    border: none;
+    transition: 0.2s all ease-in-out;
+}
+
+#taskbar button:hover {
+    background: @accent_25;
+}
+
+#taskbar button.active {
+    background: @accent_75;
+}
+
 #clock,
 #battery,
 #cpu,
